@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Form Submission Success - Sierra Medical Center</title>
+        <link rel="stylesheet" href="hw1styles.css">
+    </head>
+
+    <body>
+        <table style="width:100%;">
+            <tr>
+                <td style="width:33.33%; text-align:right; padding-right:20px;">
+                    <img src="logo.png" alt="Sierra Medical Center Logo" height="150px">
+                </td>
+                <td style="width:33.33%; text-align:center; vertical-align:middle;">
+                    <h1 style="color:#004B3D; margin:0; font-family:Georgia, serif; font-size:36px">Sierra Medical Center</h1>     
+                </td>
+                <td style="width:33.33%; text-align:left; padding-left:40px; font-size:14px; white-space:nowrap; vertical-align:middle;">
+                    Today's Date: <span id="current_date"></span>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            document.getElementById('current_date').textContent = new Date().toLocaleDateString();
+        </script>
+            
+        <h1> 
+            <br>
+            <br>
+            Your form was submitted successfully!
+        </h1>
+
+        <footer style="margin-top:30%; padding:10px 0;">
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div>
+                    <p>
+                        Sierra Medical Center<br>
+                        PO BOX 11101<br>
+                        Houston, Texas 77001
+                    </p>
+                </div>
+
+                <div style="margin-left: 30px;">
+                    <a href="mailto:dasierra@uh.edu" style="color:white">Contact Us</a>
+                </div>
+
+                <div style="margin-left: 30px;">
+                    <a href="mailto:dasierra@uh.edu">
+                        <img src="ig_logo.png" alt="Instagram Logo" style="width:20px;height:20px;">
+                    </a>
+
+                    <a href="mailto:dasierra@uh.edu">
+                        <img src="X_logo.png" alt="X/Twitter Logo" style="width:25px;height:20px;">
+                    </a>
+
+                    <a href="mailto:dasierra@uh.edu">
+                        <img src="fb_logo.png" alt="Facebook Logo" style="width:20px;height:20px;">
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
