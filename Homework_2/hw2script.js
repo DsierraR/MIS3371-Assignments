@@ -24,7 +24,7 @@ document.getElementById("reviewBtn").addEventListener("click", function() {
     const c1 = row.insertCell(0);
     const c2 = row.insertCell(1);
     c1.textContent = label;
-    c2.textContent = val ? val : "⚠ Missing";
+    c2.textContent = val ? val : "Missing!";
     if (!val) c2.style.color = "red";
   });
 
