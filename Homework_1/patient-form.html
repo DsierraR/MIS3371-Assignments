@@ -1,0 +1,292 @@
+<!doctype html>
+<!--
+Program name: patient-form.html
+Author: Diego Sierra
+Date created: 09/11/2025
+Date last edited: 09/22/2025
+Version: 1.6.1
+Description: This is a page that has a form 
+    on it to register a new account and capture 
+    demographic data for new patients of Sierra
+    Medical Center.
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Sierra Medical Center</title>
+        <link rel="stylesheet" href="hw1styles.css">
+    </head>
+
+    <body>
+        <table style="width:100%;">
+            <tr>
+                <td style="width:33.33%; text-align:right; padding-right:20px;">
+                    <img src="logo.png" alt="Sierra Medical Center Logo" height="150px">
+                </td>
+                <td style="width:33.33%; text-align:center; vertical-align:middle;">
+                    <h1 style="color:#004B3D; margin:0; font-family:Georgia, serif; font-size:36px">Sierra Medical Center</h1>     
+                </td>
+                <td style="width:33.33%; text-align:left; padding-left:40px; font-size:14px; white-space:nowrap; vertical-align:middle;">
+                    Today's Date: <span id="current_date"></span>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            document.getElementById('current_date').textContent = new Date().toLocaleDateString();
+        </script>
+            
+        <h2 style="color:#004B3D; margin-bottom: 5px;">Patient Registration Form</h2>
+        
+        <hr class="main-divider">
+
+        <h3 style="color:#004B3D; margin-top: 5px;">Patient Personal Information</h3>
+
+        <form action="success.html" method="post" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            
+            <div class="form-container">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">First name:</label>
+                        <input type="text" id="first_name" name="first_name" size="30" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middle_intial">Middle Initial:</label>
+                        <input type="text" id="middle_intial" name="middle_intial" size="1" maxlength="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last name:</label>
+                        <input type="text" id="last_name" name="last_name" size="30" maxlength="30" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user_id">User ID:</label>
+                        <input type="text" id="user_id" name="user_id" size="20" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" size="50" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" size="15" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirm">Confirm Password:</label>
+                        <input type="password" id="password_confirm" name="password_confirm" size="15" required>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span>Sex:</span>
+                        <input type="radio" id="m_sex" name="sex" value="Male" required>
+                        <label for="m_sex">Male</label>
+                        <input type="radio" id="f_sex" name="sex" value="Female">
+                        <label for="f_sex">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" size="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="2nd_address">Secondary Address Line:</label>
+                        <input type="text" id="2nd_address" name="2nd_address" size="30">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" size="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <select name="state" id="state" required>
+                            <option value="" selected>(Please select a State)</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip Code:</label>
+                        <input type="text" id="zip" name="zip" size="10" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number:</label>
+                        <input type="tel" id="phone_number" name="phone_number" size="14" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="SSN">Social Security Number:</label>
+                        <input type="password" id="SSN" name="SSN" size="11" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+            
+            </div>
+
+            <hr class="main-divider">
+
+            <h3 style="color:#004B3D; margin-top: 5px;">Patient Medical Information</h3>
+           
+            <div style="display: flex; gap: 40px; align-items: flex-start; width: 800px; max-width: 90vw; justify-content: space-between;">
+
+                <div>
+                    <label>Have you had/have any of these conditions:</label><br>
+                    <input type="checkbox" name="medical_history" value="autoimmune_disease" style="margin-top: 10px"> 
+                    <span>Autoimmune Diseases</span><br>
+                    <input type="checkbox" name="medical_history" value="cancer" style="margin-top: 5px"> 
+                    <span>Cancer</span><br>
+                    <input type="checkbox" name="medical_history" value="diabetes" style="margin-top: 5px">
+                    <span>Diabetes</span><br>
+                    <input type="checkbox" name="medical_history" value="Heart_disease" style="margin-top: 5px">
+                    <span>Heart Disease</span><br>
+                    <input type="checkbox" name="medical_history" value="thyroid_disease" style="margin-top: 5px">
+                    <span>Thyroid Disease</span><br>
+
+                    <div style="margin-top: 20px; width: 250px;">
+                        <label for="health_rating">Rate your overall health (1-10):</label><br>
+                        <input type="range" id="health_rating" name="health_rating" min="1" max="10" value="5">
+                        <span id="rangedisplay">5</span>
+                    </div>
+                </div>
+                
+                <script>
+                    var slider = document.getElementById("health_rating");
+                    var output = document.getElementById("rangedisplay");
+                    output.innerHTML = slider.value
+
+                    slider.oninput = function(){
+                        output.innerHTML = this.value;
+                    }
+                </script>
+
+                <div>
+                    <div style="white-space: nowrap;">
+                        Do you have insurance?<br>
+                        <input type="radio" id="y_insurance" name="insurance" value="Yes" required style="display: inline;">
+                        <label for="y_insurance" style="display: inline; margin-right: 15px;">Yes</label>
+                        <input type="radio" id="n_insurance" name="insurance" value="No" style="display: inline;">
+                        <label for="n_insurance" style="display: inline;">No</label>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div style="white-space: nowrap;">
+                        Have you been vaccinated?<br>
+                        <input type="radio" id="y_vaccinated" name="vaccinated" value="Yes" required style="display: inline;">
+                        <label for="y_vaccinated" style="display: inline; margin-right: 15px;">Yes</label>
+                        <input type="radio" id="n_vaccinated" name="vaccinated" value="No" style="display: inline;">
+                        <label for="n_vaccinated" style="display: inline;">No</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="symptoms">Please describe your current symptoms (if any):</label><br>
+                    <textarea id="symptoms" name="symptoms" rows="10" cols="50"></textarea>
+                </div>
+
+            </div>
+
+            <div style="margin-bottom: 15px">
+                <button type="submit">SUBMIT</button>
+                <button type="reset">CLEAR FORM</button>
+            </div>
+
+        </form>
+
+        <footer>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div>
+                    <p>
+                        Sierra Medical Center<br>
+                        PO BOX 11101<br>
+                        Houston, Texas 77001
+                    </p>
+                </div>
+                <div style="margin-left: 30px;">
+                    <a href="mailto:dasierra@uh.edu" style="color:white">Contact Us</a>
+                </div>
+
+                <div style="margin-left: 30px;">
+                    <a href="mailto:dasierra@uh.edu">
+                        <img src="ig_logo.png" alt="Instagram Logo" style="width:20px;height:20px;">
+                    </a>
+
+                    <a href="mailto:dasierra@uh.edu">
+                        <img src="X_logo.png" alt="X/Twitter Logo" style="width:25px;height:20px;">
+                    </a>
+
+                    <a href="mailto:dasierra@uh.edu">
+                        <img src="fb_logo.png" alt="Facebook Logo" style="width:20px;height:20px;">
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
