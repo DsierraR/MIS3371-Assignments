@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # ⬇️ Only upload your homework-1 folder
-          path: './Homework_1'
+          path: './Homework_2'
 
       - name: Deploy to GitHub Pages
         id: deployment
