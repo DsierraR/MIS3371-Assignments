@@ -52,19 +52,22 @@ Description: This is a page that has a form
                         <label for="first_name">First name:</label>
                         <input type="text" id="first_name" name="first_name" size="30"
                             pattern="^[A-Za-z'\-]{1,30}$" 
-                            title="e.g. Diego (Req'd)" required>
+                            placeholder="e.g. Diego (Req'd)" 
+                            itle="Only letters, apostrophes, and dashes (1–30 chars)" required>
                     </div>
                     <div class="form-group">
                         <label for="middle_intial">Middle Initial:</label>
                         <input type="text" id="middle_intial" name="middle_intial" size="1" maxlength="1"
                             pattern="^[A-Za-z]?$"
-                            title="A">
+                            placeholder="A"
+                            title="Single letter (A–Z)">
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last name:</label>
                         <input type="text" id="last_name" name="last_name" size="30" 
                             pattern="^[A-Za-z0-9'\-]{1,30}$" 
-                            title="e.g. Sierra (Req'd)" required>
+                            placeholder="e.g. Sierra (Req'd)" 
+                            title="Letters, digits, apostrophes, and dashes (1–30 chars)" required>
                     </div>
                 </div>
 
@@ -73,13 +76,14 @@ Description: This is a page that has a form
                         <label for="user_id">User ID:</label>
                         <input type="text" id="user_id" name="user_id" size="20" 
                             pattern="^(?=^[A-Za-z_\-])[A-Za-z0-9_\-]{5,20}$" 
-                            title="5-20 chars, no spaces" required>
+                            title="5–20 chars, letters/numbers/underscore, no spaces" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" size="50" 
                             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
-                            title="name@example.com" required>
+                            placeholder="name@example.com" 
+                            title="Enter a valid email address" required>
                     </div>
                 </div>
 
@@ -94,7 +98,8 @@ Description: This is a page that has a form
                         <label for="password_confirm">Confirm Password:</label>
                         <input type="password" id="password_confirm" name="password_confirm" size="15"  
                             pattern="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*#?&]{8,30}$"
-                            title="MUST match password" required>
+                            placeholder="Re-enter password"
+                            title="MUST match first password" required>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <span>Sex:</span>
@@ -110,12 +115,15 @@ Description: This is a page that has a form
                         <label for="address">Address:</label>
                         <input type="text" id="address" name="address" size="30" 
                             pattern="^.{2,30}$"
-                            title="e.g. 1234 Main St (Req'd)" required>
+                            placeholder="e.g. 1234 Main St (Req'd)" 
+                            title="2–30 characters required" required>
                     </div>
                     <div class="form-group">
                         <label for="2nd_address">Secondary Address Line:</label>
                         <input type="text" id="2nd_address" name="2nd_address" size="30"
-                            pattern="^.{0,30}$" title="Apt #, Building Name, etc.">
+                            pattern="^.{0,30}$"
+                            placeholder="Apt/Suite #, Building (optional)"
+                            title="Up to 30 characters">
                     </div>
                 </div>
 
@@ -124,7 +132,8 @@ Description: This is a page that has a form
                         <label for="city">City:</label>
                         <input type="text" id="city" name="city" size="30" 
                             pattern="^[A-Za-z'\\-\\s]{2,30}$"
-                            title="e.g. Houston" required>
+                            placeholder="e.g. Houston" 
+                            title="Letters, spaces, and dashes only (2–30 chars)" required>
                     </div>
                     <div class="form-group">
                         <label for="state">State:</label>
@@ -188,7 +197,8 @@ Description: This is a page that has a form
                         <label for="zip">Zip Code:</label>
                         <input type="text" id="zip" name="zip" size="10" 
                              pattern="^\\d{5}(-\\d{4})?$"
-                             title="77001 or 77001-1234" required>
+                             placeholder="77001 or 77001-1234" 
+                             title="5 digits or ZIP+4 format" required>
                     </div>
                 </div>
 
@@ -197,13 +207,15 @@ Description: This is a page that has a form
                         <label for="phone_number">Phone Number:</label>
                         <input type="tel" id="phone_number" name="phone_number" size="14" 
                               pattern="^\\d{3}-\\d{3}-\\d{4}$"
-                              title="000-000-0000" required>
+                              placeholder="713-555-1234"
+                              title="Format: 000-000-0000" required>
                     </div>
                     <div class="form-group">
                         <label for="SSN">Social Security Number:</label>
                         <input type="password" id="SSN" name="SSN" size="11" 
                             pattern="^\\d{3}-\\d{2}-\\d{4}$"
-                            title="000-00-0000" required>
+                            placeholder="000-00-0000"
+                            title="Use 9 digits in SSN format" required>
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth:</label>
@@ -273,8 +285,9 @@ Description: This is a page that has a form
                 <div>
                     <label for="symptoms">Please describe your current symptoms (if any):</label><br>
                     <textarea id="symptoms" name="symptoms" rows="10" cols="50"
-                      pattern="^[^&quot;&lt;&gt;]{0,500}$"
-                      title="Please give us more details..."></textarea>
+                        pattern="^[^&quot;&lt;&gt;]{0,500}$"
+                        placeholder="Optional: Describe pain, fever, or other symptoms if any"
+                        title="Avoid quotes or < > symbols"></textarea>
                 </div>
 
             </div>
