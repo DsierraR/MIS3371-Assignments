@@ -55,10 +55,10 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
     c1.textContent = label;
     if (val) {
       c2.textContent = val;
-      c2.classList.add("Pass");
+      c2.classList.add("pass");
     } else {
-      c2.textContent = "Missing";
-      c2.classList.add("Error");
+      c2.textContent = "Missing!";
+      c2.classList.add("error");
     }
   });
 
