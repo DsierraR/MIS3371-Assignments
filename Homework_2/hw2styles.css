@@ -33,6 +33,7 @@ body {
 #reviewSection {
   display: none;
   margin-top: 20px;
+  margin-bottom: 40px;
   border: 2px solid #004B3D;
   padding: 15px;
   background-color: white;
