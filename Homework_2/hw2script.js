@@ -69,11 +69,14 @@ const confirm = document.getElementById("password_confirm");
 function validatePassword() {
   if (pass.value !== confirm.value) {
     confirm.setCustomValidity("Passwords do not match");
-    confirm.reportValidity();
   } else {
     confirm.setCustomValidity("");
   }
 }
+
+pass.oninput = validatePassword;
+confirm.oninput = validatePassword;
+
 
 pass.oninput = validatePassword;
 confirm.oninput = validatePassword;
