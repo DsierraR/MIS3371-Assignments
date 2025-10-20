@@ -92,7 +92,9 @@ Description: This is a page that has a form
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" size="15" 
                             pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}"
-                            title="8–30 chars, must include uppercase, lowercase, and number" required>
+                            title="8–30 chars, must include uppercase, lowercase, and number"
+                            oninput="this.setCustomValidity('')"
+                              onchange="this.checkValidity();" required>
                     </div>
                     <div class="form-group">
                         <label for="password_confirm">Confirm Password:</label>
