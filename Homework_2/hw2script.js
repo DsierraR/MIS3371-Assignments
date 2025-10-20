@@ -78,3 +78,12 @@ function validatePassword() {
 
 pass.oninput = validatePassword;
 confirm.oninput = validatePassword;
+
+const dob = document.getElementById("dob");
+const today = new Date();
+const maxBirth = today.toISOString().split("T")[0];
+const minBirth = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate())
+  .toISOString().split("T")[0];
+dob.max = maxBirth;
+dob.min = minBirth;
+
