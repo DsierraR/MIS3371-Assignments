@@ -17,7 +17,6 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
 
   const fields = [
     ["First Name", form.first_name.value],
-    ["Middle Initial", form.middle_intial.value],
     ["Last Name", form.last_name.value],
     ["User ID", form.user_id.value],
     ["Email", form.email.value],
@@ -28,7 +27,6 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
     ["Zip", form.zip.value ? form.zip.value.substring(0,5) : ""],
     ["DOB", form.dob.value],
     ["Health Rating", form.health_rating.value],
-    ["Symptoms", form.symptoms.value],
   ];
 
   const selectedSex = form.querySelector('input[name="sex"]:checked');
@@ -43,9 +41,9 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
   const checkedHistory = Array.from(
     form.querySelectorAll('input[name="medical_history"]:checked')
   )
-    .map(cb => cb.value)
+    .map(cb => cb.nextElementSibling.textContent.trim())
     .join(", ");
-  fields.push(["Medical History", checkedHistory]);
+  fields.push(["Medical History", checkedHistory ? checkedHistory : "No conditions reported"]);
 
 
   fields.forEach(([label, val]) => {
@@ -53,7 +51,7 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
     const c1 = row.insertCell(0);
     const c2 = row.insertCell(1);
     c1.textContent = label;
-    if (val) {
+    if (val && val.trim() !== "") {
       c2.textContent = val;
       c2.classList.add("pass");
     } else {
@@ -71,6 +69,7 @@ const confirm = document.getElementById("password_confirm");
 function validatePassword() {
   if (pass.value !== confirm.value) {
     confirm.setCustomValidity("Passwords do not match");
+    confirm.reportValidity();
   } else {
     confirm.setCustomValidity("");
   }
