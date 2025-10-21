@@ -83,3 +83,11 @@ footer {
     background-color: #004B3D;
     color: white;
 }
+
+/* error highlights */
+.field-error { color: red; 
+              font-size: 0.9em; 
+              margin-left: 6px; 
+}
+
+
