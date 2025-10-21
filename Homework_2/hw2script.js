@@ -14,7 +14,8 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
       <th>Field</th>
       <th>Value / Status</th>
     </tr>`;
-
+  
+ // array of fields for review section 
   const fields = [
     ["First Name", form.first_name.value],
     ["Last Name", form.last_name.value],
@@ -37,7 +38,8 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
 
   const selectedVaccinated = form.querySelector('input[name="vaccinated"]:checked');
   fields.push(["Vaccinated", selectedVaccinated ? selectedVaccinated.value : ""]);
-
+  
+  // parse medical history
   const checkedHistory = Array.from(
     form.querySelectorAll('input[name="medical_history"]:checked')
   )
@@ -63,24 +65,50 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
   document.getElementById("reviewSection").style.display = "block";
 });
 
+// validate passwords
 const pass = document.getElementById("password");
 const confirm = document.getElementById("password_confirm");
 
 function validatePassword() {
-  if (pass.value !== confirm.value) {
+  const uid = (document.getElementById("user_id").value || "").toLowerCase();
+  const first = (document.getElementById("first_name").value || "").toLowerCase();
+  const last  = (document.getElementById("last_name").value  || "").toLowerCase();
+  const p1 = pass.value;
+  const p2 = confirm.value;
+
+  confirm.setCustomValidity("");
+  pass.setCustomValidity("");
+
+  if (p1 !== p2) {
     confirm.setCustomValidity("Passwords do not match");
-  } else {
-    confirm.setCustomValidity("");
+  }
+
+  const badParts = [uid, first, last].filter(s => s && s.length >= 3);
+  if (p1.toLowerCase() === uid) {
+    pass.setCustomValidity("Password cannot equal your User ID");
+  } else if (badParts.some(s => p1.toLowerCase().includes(s))) {
+    pass.setCustomValidity("Password cannot contain your name or User ID");
   }
 }
 
 pass.oninput = validatePassword;
 confirm.oninput = validatePassword;
+userIdInput.oninput = validatePassword;
+document.getElementById("first_name").oninput = validatePassword;
+document.getElementById("last_name").oninput  = validatePassword;
+
+const errPass = document.getElementById("err_password");
+["input", "blur"].forEach(evt => {
+  pass.addEventListener(evt, () => {
+    errPass.textContent = pass.validationMessage;
+  });
+  confirm.addEventListener(evt, () => {
+    errPass.textContent = confirm.validationMessage || pass.validationMessage;
+  });
+});
 
 
-pass.oninput = validatePassword;
-confirm.oninput = validatePassword;
-
+// DOB checks
 const dob = document.getElementById("dob");
 const today = new Date();
 const maxBirth = today.toISOString().split("T")[0];
@@ -88,4 +116,23 @@ const minBirth = new Date(today.getFullYear() - 120, today.getMonth(), today.get
   .toISOString().split("T")[0];
 dob.max = maxBirth;
 dob.min = minBirth;
+
+//dob format helper
+dob.addEventListener("change", () => {
+  const err = document.getElementById("err_dob");
+  err.textContent = "";
+  if (dob.value < dob.min || dob.value > dob.max) {
+    err.textContent = `DOB must be between ${dob.min} and ${dob.max}`;
+  }
+});
+
+// phone number format helper
+const phone = document.getElementById("phone_number");
+phone.addEventListener("input", () => {
+  const err = document.getElementById("err_phone");
+  err.textContent = phone.validity.patternMismatch ? "Use 000-000-0000" : "";
+});
+
+
+
 
