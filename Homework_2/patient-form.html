@@ -92,8 +92,9 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" size="15" 
-                            pattern=pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[^\"]{8,30}$"
+                            pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[^\"]{8,30}$'
                             title="8–30 chars, must include uppercase, lowercase, and number" required>
+                        <span class="field-error" id="err_password"></span>
                     </div>
                     <div class="form-group">
                         <label for="password_confirm">Confirm Password:</label>
@@ -211,6 +212,7 @@ Description: This is a page that has a form
                               pattern="^\d{3}-\d{3}-\d{4}$"
                               placeholder="713-555-1234"
                               title="Enter as 000-000-0000 or 0000000000" required>
+                        <span class="field-error" id="err_phone"></span>
                     </div>
                     <div class="form-group">
                         <label for="SSN">Social Security Number:</label>
@@ -222,6 +224,7 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="dob">Date of Birth:</label>
                         <input type="date" id="dob" name="dob" required>
+                        <span class="field-error" id="err_dob"></span>
                     </div>
                 </div>
             
@@ -285,6 +288,16 @@ Description: This is a page that has a form
                         <input type="radio" id="n_vaccinated" name="vaccinated" value="No" style="display: inline;"
                             title="Select no if you are not vaccinated">
                         <label for="n_vaccinated" style="display: inline;">No</label>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label>Exercise Frequency:</label><br>
+                        <input type="radio" id="exercise_never" name="exercise" value="Never" required title="Select if you do not exercise regularly">
+                        <label for="exercise_never">Never</label>
+                        <input type="radio" id="exercise_weekly" name="exercise" value="1–2 times per week" title="Select if you exercise 1–2 times per week">
+                        <label for="exercise_weekly">1–2 times/week</label>
+                        
+                        <input type="radio" id="exercise_often" name="exercise" value="3+ times per week" title="Select if you exercise three or more times per week">
+                        <label for="exercise_often">3+ times/week</label>
                     </div>
                 </div>
 
