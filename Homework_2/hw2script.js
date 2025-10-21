@@ -38,7 +38,10 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
 
   const selectedVaccinated = form.querySelector('input[name="vaccinated"]:checked');
   fields.push(["Vaccinated", selectedVaccinated ? selectedVaccinated.value : ""]);
-  
+
+  const exercise = form.querySelector('input[name="exercise"]:checked');
+  fields.push(["Exercise Frequency", exercise ? exercise.value : ""]);
+
   // parse medical history
   const checkedHistory = Array.from(
     form.querySelectorAll('input[name="medical_history"]:checked')
