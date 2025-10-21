@@ -65,7 +65,7 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="last_name">Last name:</label>
                         <input type="text" id="last_name" name="last_name" size="30" 
-                            pattern="^[A-Za-z0-9'\-]{1,30}$" 
+                            pattern="^(?=.{1,30}$)[A-Za-z'\-]*[2-5]?[A-Za-z'\-]*$" 
                             placeholder="e.g. Sierra (Req'd)" 
                             title="Letters, digits, apostrophes, and dashes (1–30 chars)" required>
                     </div>
@@ -75,8 +75,9 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="user_id">User ID:</label>
                         <input type="text" id="user_id" name="user_id" size="20" 
-                            pattern="^(?=^[A-Za-z_\-])[A-Za-z0-9_\-]{5,20}$" 
-                            title="5–20 chars, letters/numbers/underscore, no spaces" required>
+                            pattern="^(?=^[A-Za-z_\-])[A-Za-z0-9_\-]{5,30}$" 
+                            title="5–30 chars, letters/numbers/underscore/dash; first char cannot be a number; no spaces" 
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
@@ -91,7 +92,7 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" size="15" 
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}"
+                            pattern=pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[^\"]{8,30}$"
                             title="8–30 chars, must include uppercase, lowercase, and number" required>
                     </div>
                     <div class="form-group">
@@ -102,9 +103,11 @@ Description: This is a page that has a form
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <span>Sex:</span>
-                        <input type="radio" id="m_sex" name="sex" value="Male" required>
+                        <input type="radio" id="m_sex" name="sex" value="Male" 
+                            title="Select your sex: Male" required>
                         <label for="m_sex">Male</label>
-                        <input type="radio" id="f_sex" name="sex" value="Female">
+                        <input type="radio" id="f_sex" name="sex" value="Female"
+                            title="Select your sex: Female">
                         <label for="f_sex">Female</label>
                     </div>
                 </div>
@@ -130,13 +133,13 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="city">City:</label>
                         <input type="text" id="city" name="city" size="30" 
-                            pattern="^[A-Za-z'\\-\\s]{2,30}$"
+                            pattern="^[A-Za-z' -]{2,30}$"
                             placeholder="e.g. Houston" 
                             title="Letters, spaces, and dashes only (2–30 chars)" required>
                     </div>
                     <div class="form-group">
                         <label for="state">State:</label>
-                        <select name="state" id="state" required>
+                        <select name="state" id="state" title="Choose your state (2-letter code)" required>
                             <option value="" selected>(Please select a State)</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -205,7 +208,7 @@ Description: This is a page that has a form
                     <div class="form-group">
                         <label for="phone_number">Phone Number:</label>
                         <input type="tel" id="phone_number" name="phone_number" size="14" 
-                              pattern="^(\d{3}-\d{3}-\d{4}|\d{10})$"
+                              pattern="^\d{3}-\d{3}-\d{4}$"
                               placeholder="713-555-1234"
                               title="Enter as 000-000-0000 or 0000000000" required>
                     </div>
@@ -263,9 +266,11 @@ Description: This is a page that has a form
                 <div>
                     <div style="white-space: nowrap;">
                         Do you have insurance?<br>
-                        <input type="radio" id="y_insurance" name="insurance" value="Yes" required style="display: inline;">
+                        <input type="radio" id="y_insurance" name="insurance" value="Yes" required style="display: inline;"
+                            title="Select yes if you currently have insurance">
                         <label for="y_insurance" style="display: inline; margin-right: 15px;">Yes</label>
-                        <input type="radio" id="n_insurance" name="insurance" value="No" style="display: inline;">
+                        <input type="radio" id="n_insurance" name="insurance" value="No" style="display: inline;"
+                            title="Select no if you do not have insurance">
                         <label for="n_insurance" style="display: inline;">No</label>
                     </div>
 
@@ -274,9 +279,11 @@ Description: This is a page that has a form
 
                     <div style="white-space: nowrap;">
                         Have you been vaccinated?<br>
-                        <input type="radio" id="y_vaccinated" name="vaccinated" value="Yes" required style="display: inline;">
+                        <input type="radio" id="y_vaccinated" name="vaccinated" value="Yes" required style="display: inline;"
+                            title="Select yes if you are vaccinated">
                         <label for="y_vaccinated" style="display: inline; margin-right: 15px;">Yes</label>
-                        <input type="radio" id="n_vaccinated" name="vaccinated" value="No" style="display: inline;">
+                        <input type="radio" id="n_vaccinated" name="vaccinated" value="No" style="display: inline;"
+                            title="Select no if you are not vaccinated">
                         <label for="n_vaccinated" style="display: inline;">No</label>
                     </div>
                 </div>
