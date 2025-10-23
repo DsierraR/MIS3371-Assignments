@@ -6,6 +6,7 @@
  Purpose: Redisplay/validate data from a form
 */
 
+// review button
 document.getElementById("reviewBtn").addEventListener("click", function () {
   const form = document.querySelector("form");
   const table = document.getElementById("reviewTable");
@@ -15,7 +16,7 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
       <th>Value / Status</th>
     </tr>`;
   
- // array of fields for review section 
+// array for fields in review table + checkboxes and radios after
   const fields = [
     ["First Name", form.first_name.value],
     ["Last Name", form.last_name.value],
@@ -42,15 +43,14 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
   const exercise = form.querySelector('input[name="exercise"]:checked');
   fields.push(["Exercise Frequency", exercise ? exercise.value : ""]);
 
-  // parse medical history
   const checkedHistory = Array.from(
     form.querySelectorAll('input[name="medical_history"]:checked')
   )
     .map(cb => cb.nextElementSibling.textContent.trim())
     .join(", ");
-  fields.push(["Medical History", checkedHistory ? checkedHistory : "No conditions reported"]);
+  fields.push(["Medical History", checkedHistory || "No conditions reported"]);
 
-
+// review table 
   fields.forEach(([label, val]) => {
     const row = table.insertRow();
     const c1 = row.insertCell(0);
@@ -68,14 +68,16 @@ document.getElementById("reviewBtn").addEventListener("click", function () {
   document.getElementById("reviewSection").style.display = "block";
 });
 
-// validate passwords
+
+// oassword checker
 const pass = document.getElementById("password");
 const confirm = document.getElementById("password_confirm");
+const userIdInput = document.getElementById("user_id");
 
 function validatePassword() {
-  const uid = (document.getElementById("user_id").value || "").toLowerCase();
+  const uid = userIdInput.value.toLowerCase();
   const first = (document.getElementById("first_name").value || "").toLowerCase();
-  const last  = (document.getElementById("last_name").value  || "").toLowerCase();
+  const last = (document.getElementById("last_name").value || "").toLowerCase();
   const p1 = pass.value;
   const p2 = confirm.value;
 
@@ -94,24 +96,28 @@ function validatePassword() {
   }
 }
 
+// run on input so it checks while typing
 pass.oninput = validatePassword;
 confirm.oninput = validatePassword;
 userIdInput.oninput = validatePassword;
 document.getElementById("first_name").oninput = validatePassword;
-document.getElementById("last_name").oninput  = validatePassword;
+document.getElementById("last_name").oninput = validatePassword;
 
+//live password check 
 const errPass = document.getElementById("err_password");
-["input", "blur"].forEach(evt => {
-  pass.addEventListener(evt, () => {
-    errPass.textContent = pass.validationMessage;
-  });
-  confirm.addEventListener(evt, () => {
-    errPass.textContent = confirm.validationMessage || pass.validationMessage;
-  });
+
+pass.addEventListener("input", function () {
+  validatePassword();
+  errPass.textContent = pass.validationMessage;
+});
+
+confirm.addEventListener("input", function () {
+  validatePassword();
+  errPass.textContent = confirm.validationMessage || pass.validationMessage;
 });
 
 
-// DOB checks
+// DOB checker and error msg
 const dob = document.getElementById("dob");
 const today = new Date();
 const maxBirth = today.toISOString().split("T")[0];
@@ -120,7 +126,6 @@ const minBirth = new Date(today.getFullYear() - 120, today.getMonth(), today.get
 dob.max = maxBirth;
 dob.min = minBirth;
 
-//dob format helper
 dob.addEventListener("change", () => {
   const err = document.getElementById("err_dob");
   err.textContent = "";
@@ -129,13 +134,10 @@ dob.addEventListener("change", () => {
   }
 });
 
-// phone number format helper
+
+// phone# checker
 const phone = document.getElementById("phone_number");
 phone.addEventListener("input", () => {
   const err = document.getElementById("err_phone");
   err.textContent = phone.validity.patternMismatch ? "Use 000-000-0000" : "";
 });
-
-
-
-
