@@ -1,0 +1,93 @@
+/* Body Styles */
+body {
+    text-align: center;
+    background-color: #FFF8E7;
+}
+
+/* Line dividers */
+.main-divider {
+    width: 90%;
+    border: 1px solid #004B3D;
+}
+
+/* Form layout */
+.form-container {
+    width: 800px;
+    max-width: 90vw;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Review Section Styles */
+#reviewSection {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: 2px solid #004B3D;
+  padding: 15px;
+  background-color: white;
+  width: 85%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+#reviewSection h3 {
+  color: #004B3D;
+  margin-top: 0;
+  text-align: center;
+}
+
+#reviewTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#reviewTable th,
+#reviewTable td {
+  border: 1px solid #004B3D;
+  padding: 8px;
+}
+
+#reviewTable th {
+  background-color: #004B3D;
+  color: white;
+  text-align: left;
+}
+
+#reviewTable td.pass {
+  color: green;
+  font-weight: bold;
+}
+
+#reviewTable td.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Footer styles */
+footer {
+    background-color: #004B3D;
+    color: white;
+}
+
+/* error highlights */
+.field-error {
+  color: red;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 4px;
+}
