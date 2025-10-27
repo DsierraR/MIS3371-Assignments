@@ -53,21 +53,24 @@ Description: This is a page that has a form
                         <input type="text" id="first_name" name="first_name" size="30"
                             pattern="^[A-Za-z'\-]{1,30}$" 
                             placeholder="e.g. Diego (Req'd)" 
-                            itle="Only letters, apostrophes, and dashes (1–30 chars)" required>
+                            title="Only letters, apostrophes, and dashes (1–30 chars)" required>
+                        <span class="field-error" id="err_first_name"></span>
                     </div>
                     <div class="form-group">
-                        <label for="middle_intial">Middle Initial:</label>
-                        <input type="text" id="middle_intial" name="middle_intial" size="1" maxlength="1"
+                        <label for="middle_initial">Middle Initial:</label>
+                        <input type="text" id="middle_initial" name="middle_initial" size="1" maxlength="1"
                             pattern="^[A-Za-z]?$"
                             placeholder="A"
                             title="Single letter (A–Z)">
+                        <span class="field-error" id="err_middle_initial"></span>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last name:</label>
                         <input type="text" id="last_name" name="last_name" size="30" 
-                            pattern="^(?=.{1,30}$)[A-Za-z'\-]*[2-5]?[A-Za-z'\-]*$" 
+                            pattern="^[A-Za-z'\-]{1,30}$" 
                             placeholder="e.g. Sierra (Req'd)" 
-                            title="Letters, digits, apostrophes, and dashes (1–30 chars)" required>
+                            title="Letters, apostrophes, and dashes only (1–30 chars)" required>
+                        <span class="field-error" id="err_last_name"></span>
                     </div>
                 </div>
 
@@ -78,6 +81,7 @@ Description: This is a page that has a form
                             pattern="^(?=^[A-Za-z_\-])[A-Za-z0-9_\-]{5,30}$" 
                             title="5–30 chars, letters/numbers/underscore/dash; first char cannot be a number; no spaces" 
                             required>
+                        <span class="field-error" id="err_user_id"></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
@@ -85,6 +89,7 @@ Description: This is a page that has a form
                             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
                             placeholder="name@example.com" 
                             title="Enter a valid email address" required>
+                        <span class="field-error" id="err_email"></span>
                     </div>
                 </div>
 
@@ -110,6 +115,7 @@ Description: This is a page that has a form
                         <input type="radio" id="f_sex" name="sex" value="Female"
                             title="Select your sex: Female">
                         <label for="f_sex">Female</label>
+                        <span class="field-error" id="err_sex"></span>
                     </div>
                 </div>
 
@@ -120,6 +126,7 @@ Description: This is a page that has a form
                             pattern="^.{2,30}$"
                             placeholder="e.g. 1234 Main St (Req'd)" 
                             title="2–30 characters required" required>
+                        <span class="field-error" id="err_address"></span>
                     </div>
                     <div class="form-group">
                         <label for="2nd_address">Secondary Address Line:</label>
@@ -127,6 +134,7 @@ Description: This is a page that has a form
                             pattern="^.{0,30}$"
                             placeholder="Apt/Suite #, Building (optional)"
                             title="Up to 30 characters">
+                        <span class="field-error" id="err_2nd_address"></span>
                     </div>
                 </div>
 
@@ -137,6 +145,7 @@ Description: This is a page that has a form
                             pattern="^[A-Za-z' -]{2,30}$"
                             placeholder="e.g. Houston" 
                             title="Letters, spaces, and dashes only (2–30 chars)" required>
+                        <span class="field-error" id="err_city"></span>
                     </div>
                     <div class="form-group">
                         <label for="state">State:</label>
@@ -195,6 +204,7 @@ Description: This is a page that has a form
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>
+                        <span class="field-error" id="err_state"></span>
                     </div>
                     <div class="form-group">
                         <label for="zip">Zip Code:</label>
@@ -202,6 +212,7 @@ Description: This is a page that has a form
                              pattern="^\d{5}(-\d{4})?$"
                              placeholder="eg. 77001" 
                              title="5 digits or ZIP+4 format" required>
+                        <span class="field-error" id="err_zip"></span>
                     </div>
                 </div>
 
@@ -211,7 +222,7 @@ Description: This is a page that has a form
                         <input type="tel" id="phone_number" name="phone_number" size="14" 
                               pattern="^\d{3}-\d{3}-\d{4}$"
                               placeholder="713-555-1234"
-                              title="Enter as 000-000-0000 or 0000000000" required>
+                              title="Enter as 000-000-0000" required>
                         <span class="field-error" id="err_phone"></span>
                     </div>
                     <div class="form-group">
@@ -220,6 +231,7 @@ Description: This is a page that has a form
                             pattern="^(\d{3}-\d{2}-\d{4}|\d{9})$"
                             placeholder="000-00-0000"
                             title="Enter as 123-45-6789 or 123456789" required>
+                        <span class="field-error" id="err_SSN"></span>
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth:</label>
@@ -253,6 +265,7 @@ Description: This is a page that has a form
                         <label for="health_rating">Rate your overall health (1-10):</label><br>
                         <input type="range" id="health_rating" name="health_rating" min="1" max="10" value="5">
                         <span id="rangedisplay">5</span>
+                        <span class="field-error" id="err_health_rating"></span>
                     </div>
                 </div>
                 
@@ -275,6 +288,7 @@ Description: This is a page that has a form
                         <input type="radio" id="n_insurance" name="insurance" value="No" style="display: inline;"
                             title="Select no if you do not have insurance">
                         <label for="n_insurance" style="display: inline;">No</label>
+                        <span class="field-error" id="err_insurance"></span>
                     </div>
 
                     <br>
@@ -288,6 +302,7 @@ Description: This is a page that has a form
                         <input type="radio" id="n_vaccinated" name="vaccinated" value="No" style="display: inline;"
                             title="Select no if you are not vaccinated">
                         <label for="n_vaccinated" style="display: inline;">No</label>
+                        <span class="field-error" id="err_vaccinated"></span>
                     </div>
                     <div class="form-group" style="margin-top: 25px;">
                         <label>Exercise Frequency:</label><br>
@@ -295,9 +310,9 @@ Description: This is a page that has a form
                         <label for="exercise_never">Never</label>
                         <input type="radio" id="exercise_weekly" name="exercise" value="1–2 times per week" title="Select if you exercise 1–2 times per week">
                         <label for="exercise_weekly">1–2 times/week</label>
-                        
                         <input type="radio" id="exercise_often" name="exercise" value="3+ times per week" title="Select if you exercise three or more times per week">
                         <label for="exercise_often">3+ times/week</label>
+                        <span class="field-error" id="err_exercise"></span>
                     </div>
                 </div>
 
@@ -312,8 +327,9 @@ Description: This is a page that has a form
             </div>
 
             <div style="margin-bottom: 15px;">
-              <button type="submit">SUBMIT</button>
-              <button type="reset">CLEAR FORM</button>
+              <button type="button" id="btnValidate">VALIDATE</button>
+              <button type="submit" id="btnSubmit" hidden>SUBMIT</button>
+              <button type="reset" id="btnClear">CLEAR FORM</button>
               <button type="button" id="reviewBtn">REVIEW</button>
             </div>
             
