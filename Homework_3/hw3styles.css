@@ -45,20 +45,23 @@ main.centered{
 /* Line dividers */
 .main-divider {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto; 
     border: 1px solid #004B3D;
 }
 
 /* Form layout */
 .form-container {
+    width:900px;
+    max-width:90vw;
     margin: 0 auto; 
 }
 
 .form-row{
     display: flex;
-    justify-content: flex-start;
-    align-items: center;        
+    justify-content:space-between;
+    align-items: center;
+    gap:16px;
     margin: 15px 0;
 }
 
@@ -68,16 +71,27 @@ main.centered{
     gap: 5px;
 }
 
-.medical-wrap{
+.form-group input,
+.form-group select{ 
+    margin-left:6px; 
+}
+
+.medical-wrap {
   display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 24px;
   width: 800px;
   max-width: 90vw;
-  margin: 0 auto;       
-  text-align: left;       
+  margin: 0 auto;
 }
+
+.medical-col { 
+    width: 260px; 
+}  
+
+.medical-col textarea { 
+    width: 100%; 
+} 
 
 /* radio layout */
 .inline-group{
@@ -88,6 +102,11 @@ main.centered{
     flex-wrap: wrap;
     text-align: center;
 }
+
+.center-block { 
+    text-align: center; 
+}
+
 
 /* Review Section Styles */
 #reviewSection {
