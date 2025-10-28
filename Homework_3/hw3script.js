@@ -430,9 +430,9 @@ document.addEventListener("DOMContentLoaded", function(){
   if (btnClear) btnClear.addEventListener("click", function(){ setTimeout(function(){ togglesubmit(false); }, 0); });
 });
 
-
 function checkform() {
   error_flag = 0;
+
   checkfirstname(); 
   checkmiddle(); 
   checklastname();
@@ -459,6 +459,6 @@ function checkform() {
     togglesubmit(true);
   }
 }
-    togglesubmit(true); 
-  }
-}
+
+
+
