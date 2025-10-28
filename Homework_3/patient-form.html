@@ -4,7 +4,7 @@ Program name: patient-form.html
 Author: Diego Sierra
 Date created: 09/11/2025
 Date last edited: 10/26/2025
-Version: 3.1.1
+Version: 3.3.5
 Description: This is a page that has a form 
     on it to register a new account and capture 
     demographic data for new patients of Sierra
@@ -248,7 +248,7 @@ Description: This is a page that has a form
                
                   <div class="medical-wrap">
                       
-                    <div>
+                    <div class="medical-col">
                         <label>Have you had/have any of these conditions:</label><br>
                         <input type="checkbox" name="medical_history" value="autoimmune_disease" style="margin-top: 10px"> 
                         <span>Autoimmune Diseases</span><br>
@@ -269,8 +269,8 @@ Description: This is a page that has a form
                         </div>
                     </div>
     
-                    <div>
-                        <div style="white-space: nowrap;">
+                    <div class="medical-col">
+                            <div class="center-block">
                             Do you have insurance?<br>
                             <input type="radio" id="y_insurance" name="insurance" value="Yes" required style="display: inline;"
                                 title="Select yes if you currently have insurance">
@@ -284,7 +284,7 @@ Description: This is a page that has a form
                         <br>
                         <br>
     
-                        <div style="white-space: nowrap;">
+                        <div class="center-block">
                             Have you been vaccinated?<br>
                             <input type="radio" id="y_vaccinated" name="vaccinated" value="Yes" required style="display: inline;"
                                 title="Select yes if you are vaccinated">
@@ -294,7 +294,7 @@ Description: This is a page that has a form
                             <label for="n_vaccinated" style="display: inline;">No</label>
                             <span class="field-error" id="err_vaccinated"></span>
                         </div>
-                        <div class="form-group" style="margin-top: 25px;">
+                        <div class="center-block" style="margin-top: 25px;">
                             <label>Exercise Frequency:</label><br>
                             <input type="radio" id="exercise_never" name="exercise" value="Never" required title="Select if you do not exercise regularly">
                             <label for="exercise_never">Never</label>
@@ -306,7 +306,7 @@ Description: This is a page that has a form
                         </div>
                     </div>
     
-                    <div>
+                    <div class="medical-col">
                         <label for="symptoms">Please describe your current symptoms (if any):</label><br>
                         <textarea id="symptoms" name="symptoms" rows="10" cols="50"
                             pattern="^[^&quot;&lt;&gt;]{0,500}$"
