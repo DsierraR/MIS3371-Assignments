@@ -459,6 +459,3 @@ function checkform() {
     togglesubmit(true);
   }
 }
-
-
-
