@@ -5,7 +5,7 @@
  Purpose: Redisplay/validate data from a form
 */
 
-ar error_flag = 0;
+var error_flag = 0;
 
 //review table
 document.getElementById("reviewBtn").addEventListener("click", function () {
