@@ -17,9 +17,10 @@ main {
 }
 
 main.form-page{
-  width: 800px;
-  max-width: 90vw;
-  margin: 0 auto;
+    width: 800px;
+    max-width: 90vw;
+    margin: 0 auto;
+    text-align: center;         
 }
 
 main.form-page h2,
@@ -34,16 +35,18 @@ footer {
 
 /*center content*/
 main.centered{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
 }
 
 /* Line dividers */
 .main-divider {
-    width: 90%;
+    width: 10%;
+    max-width: 800px;
+    margin: 0 auto; 
     border: 1px solid #004B3D;
 }
 
@@ -52,17 +55,28 @@ main.centered{
     margin: 0 auto; 
 }
 
-.form-row {
+.form-row{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 24px;           
     margin: 15px 0;
 }
 
-.form-group {
+.form-group{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+}
+
+.medical-flex{
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 800px;
+    max-width: 90vw;
+    margin: 0 auto;         
 }
 
 /* radio layout */
