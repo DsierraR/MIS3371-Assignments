@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Form Submission Success - Sierra Medical Center</title>
-        <link rel="stylesheet" href="hw2styles.css">
+        <link rel="stylesheet" href="hw3styles.css">
+        <script defer src="hw3script.js"></script>
     </head>
 
     <body>
@@ -19,15 +20,19 @@
                     Today's Date: <span id="current_date"></span>
                 </td>
             </tr>
+            
+        <script>
+            document.getElementById('current_date').textContent = new Date().toLocaleDateString();
+        </script>
+
         </table>
         
-        <h1> 
-            <br>
-            <br>
-            Your form was submitted successfully!
-        </h1>
+        <main class="centered">
+            <h1>Your form was submitted successfully!</h1>
+            <h2> We will follow up shortly.</h2>
+        </main>
 
-        <footer style="margin-top:30%; padding:10px 0;">
+        <footer style="padding:10px 0;">
             <div style="display: flex; justify-content: center; align-items: center;">
                 <div>
                     <p>
