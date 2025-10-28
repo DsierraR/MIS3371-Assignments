@@ -17,7 +17,7 @@ main {
 }
 
 main.form-page{
-    width: 800px;
+    width: 900px;
     max-width: 90vw;
     margin: 0 auto;
     text-align: center;         
@@ -44,7 +44,7 @@ main.centered{
 
 /* Line dividers */
 .main-divider {
-    width: 10%;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto; 
     border: 1px solid #004B3D;
@@ -58,25 +58,25 @@ main.centered{
 .form-row{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    gap: 24px;           
+    align-items: center;        
     margin: 15px 0;
 }
 
 .form-group{
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
 }
 
-.medical-flex{
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    justify-content: center;
-    width: 800px;
-    max-width: 90vw;
-    margin: 0 auto;         
+.medical-wrap{
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 800px;
+  max-width: 90vw;
+  margin: 0 auto;       
+  text-align: left;       
 }
 
 /* radio layout */
