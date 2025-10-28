@@ -31,51 +31,51 @@ body {
 
 /* Review Section Styles */
 #reviewSection {
-  display: none;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  border: 2px solid #004B3D;
-  padding: 15px;
-  background-color: white;
-  width: 85%;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 2px solid #004B3D;
+    padding: 15px;
+    background-color: white;
+    width: 85%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
 }
 
 #reviewSection h3 {
-  color: #004B3D;
-  margin-top: 0;
-  text-align: center;
+    color: #004B3D;
+    margin-top: 0;
+    text-align: center;
 }
 
 #reviewTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
 #reviewTable th,
 #reviewTable td {
-  border: 1px solid #004B3D;
-  padding: 8px;
+    border: 1px solid #004B3D;
+    padding: 8px;
 }
 
 #reviewTable th {
-  background-color: #004B3D;
-  color: white;
-  text-align: left;
+    background-color: #004B3D;
+    color: white;
+    text-align: left;
 }
 
 #reviewTable td.pass {
-  color: green;
-  font-weight: bold;
+    color: green;
+    font-weight: bold;
 }
 
 #reviewTable td.error {
-  color: red;
-  font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
 /* Footer styles */
@@ -86,8 +86,17 @@ footer {
 
 /* error highlights */
 .field-error {
-  color: red;
-  font-size: 0.9em;
-  display: block;
-  margin-top: 4px;
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 4px;
+}
+
+.is-invalid { 
+    outline: 2px solid #BF0A0A;
+}
+
+button[disabled] { 
+    opacity: 0.6; 
+    cursor: not-allowed; 
 }
