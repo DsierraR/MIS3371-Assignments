@@ -1,5 +1,4 @@
 /* Body Styles */
-
 html, body { 
     height: 100%; 
 }
@@ -12,8 +11,20 @@ body {
     flex-direction: column;
 }
 
+/*page centering*/
 main { 
     flex: 1; 
+}
+
+main.form-page{
+  width: 800px;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+main.form-page h2,
+main.form-page h3 { 
+    text-align: center; 
 }
 
 /*footer at bottom*/
@@ -38,8 +49,7 @@ main.centered{
 
 /* Form layout */
 .form-container {
-    width: 800px;
-    max-width: 90vw;
+    margin: 0 auto; 
 }
 
 .form-row {
@@ -53,6 +63,16 @@ main.centered{
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+/* radio layout */
+.inline-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 /* Review Section Styles */
