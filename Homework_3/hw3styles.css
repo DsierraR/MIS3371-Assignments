@@ -92,7 +92,7 @@ main.centered{
 }  
 
 .medical-col textarea { 
-    width: 100%; 
+    width: auto;
 } 
 
 /* radio layout */
