@@ -1,7 +1,7 @@
 /* 
  Name: Diego Sierra
  File: hw3script.js
- Date Updated: 2025-10-27
+ Date Updated: 2025-11-08
  Purpose: Redisplay/validate data from a form
 */
 
