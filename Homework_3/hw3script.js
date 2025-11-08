@@ -373,12 +373,27 @@ function checkexercise(){ checkGroup("exercise","err_exercise","Please select ex
 
 //live checks and validate then submit btn
 document.addEventListener("DOMContentLoaded", function(){
-  
+
+ // Load state options using fetch
+ fetch("states.json")
+   .then(r => r.json())
+   .then(data => {
+     const stateSelect = document.getElementById("state");
+     data.forEach(item => {
+       const opt = document.createElement("option");
+       opt.value = item.code;
+       opt.textContent = item.name;
+       stateSelect.appendChild(opt);
+     });
+   })
+   .catch(() => {
+     console.log("Could not load states.json");
+   });
+
  // current date for the title area/header
   var cd = document.getElementById("current_date");
   if (cd) cd.textContent = new Date().toLocaleDateString();
 
- 
   var ssn = document.getElementById("SSN");
   ssn.addEventListener("input", function(){
     var caret = ssn.selectionStart;
@@ -391,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function(){
   var slider = document.getElementById("health_rating");
   var output = document.getElementById("rangedisplay");
   output.innerHTML = slider.value;
-  slider.oninput = function(){ output.innerHTML = this.value; checkslider(); };
+  slider.oninput = function(){ output.innerHTML = this.value; checkslider();};
 
  // check each field live
   document.getElementById("first_name").addEventListener("blur", checkfirstname);
@@ -459,3 +474,4 @@ function checkform() {
     togglesubmit(true);
   }
 }
+
