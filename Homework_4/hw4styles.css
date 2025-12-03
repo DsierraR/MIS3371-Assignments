@@ -10,9 +10,23 @@ body {
     display: flex;     
     flex-direction: column;
     font-size: 18px; 
+    padding-bottom: 100px; 
 }
 
-/*page centering*/
+/* header + welcome bar */
+.header {
+    background-color: #FFF8E7;
+}
+
+#welcomeBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 20px 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* page centering */
 main { 
     flex: 1; 
 }
@@ -28,11 +42,6 @@ main.form-page h2,
 main.form-page h3 {
     color:#004B3D;
     text-align: center; 
-}
-
-/*footer at bottom*/
-footer {
-    margin-top: auto; 
 }
 
 /*center content*/
@@ -163,6 +172,10 @@ main.centered{
 footer {
     background-color: #004B3D;
     color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 /* error highlights */
@@ -180,4 +193,12 @@ footer {
 button[disabled] { 
     opacity: 0.6; 
     cursor: not-allowed; 
+}
+
+/* so js can make stuff stick */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
