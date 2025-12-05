@@ -32,7 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './Homework_3'
+          path: './Homework_4'
 
       - name: Deploy to GitHub Pages
         id: deployment
