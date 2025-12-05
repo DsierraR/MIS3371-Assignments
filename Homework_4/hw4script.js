@@ -1,7 +1,7 @@
 /* 
  Name: Diego Sierra
- File: hw3script.js
- Date Updated: 2025-11-08
+ File: hw4script.js
+ Date Updated: 2025-12-05
  Purpose: Redisplay/validate data from a form
 */
 
@@ -474,3 +474,167 @@ function checkform() {
     togglesubmit(true);
   }
 }
+
+// Sticky header
+function handleHeaderScroll() {
+  var headerDiv = document.getElementById("header");
+  if (!headerDiv) return;
+
+  var stickyPoint = headerDiv.offsetTop;
+  if (window.pageYOffset > stickyPoint) {
+    headerDiv.classList.add("sticky");
+  } else {
+    headerDiv.classList.remove("sticky");
+  }
+}
+window.addEventListener("scroll", handleHeaderScroll);
+
+// cookie helpers so we store for 2 days
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i].trim();
+    if (c.indexOf(name) === 0) {
+      return decodeURIComponent(c.substring(name.length, c.length));
+    }
+  }
+  return "";
+}
+
+function clearCookie(cname) {
+  document.cookie = cname + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+}
+
+// localStorage for non secure stuff
+var fieldsToRemember = [
+  "first_name",
+  "last_name",
+  "user_id",
+  "email",
+  "address",
+  "2nd_address",
+  "city",
+  "state",
+  "zip",
+  "phone_number",
+  "dob",
+  "health_rating"
+];
+
+function saveOneField(id) {
+  var rememberBox = document.getElementById("rememberMe");
+  if (!rememberBox || !rememberBox.checked) return;
+
+  var el = document.getElementById(id);
+  if (!el) return;
+
+  localStorage.setItem("smc_" + id, el.value);
+}
+
+function loadSavedForm() {
+  fieldsToRemember.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var saved = localStorage.getItem("smc_" + id);
+    if (saved !== null) {
+      el.value = saved;
+    }
+  });
+}
+
+function clearSavedForm() {
+  fieldsToRemember.forEach(function (id) {
+    localStorage.removeItem("smc_" + id);
+  });
+}
+
+function setupHW4() {
+  var firstBox   = document.getElementById("first_name");
+  var rememberMe = document.getElementById("rememberMe");
+  var welcome    = document.getElementById("welcomeText");
+  var notYouArea = document.getElementById("notYouArea");
+  var form       = document.querySelector("form");
+
+  if (!firstBox || !rememberMe || !welcome || !form) return;
+
+  var savedName = getCookie("smcFirstName");
+  if (savedName !== "") {
+    welcome.textContent = "Welcome back, " + savedName + "!";
+    if (firstBox.value === "") {
+      firstBox.value = savedName;
+    }
+
+    notYouArea.innerHTML =
+      '<label><input type="checkbox" id="notYouBox"> Not ' +
+      savedName +
+      '? Click here to start as a NEW USER.</label>';
+
+    var notYouBox = document.getElementById("notYouBox");
+    notYouBox.onclick = function () {
+      if (this.checked) {
+        clearCookie("smcFirstName");
+        clearSavedForm();
+        form.reset();
+        welcome.textContent = "Welcome, new user!";
+        notYouArea.innerHTML = "";
+      }
+    };
+
+    loadSavedForm();
+  } else {
+    welcome.textContent = "Welcome, new user!";
+  }
+
+  fieldsToRemember.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("change", function () {
+        saveOneField(id);
+      });
+    }
+  });
+
+  firstBox.addEventListener("change", function () {
+    var fname = firstBox.value.trim();
+    if (rememberMe.checked && fname !== "") {
+      setCookie("smcFirstName", fname, 2);
+    }
+  });
+
+  rememberMe.addEventListener("change", function () {
+    if (!rememberMe.checked) {
+      clearCookie("smcFirstName");
+      clearSavedForm();
+    }
+  });
+
+  form.addEventListener("submit", function () {
+    var fname = firstBox.value.trim();
+    if (rememberMe.checked && fname !== "") {
+      setCookie("smcFirstName", fname, 2);
+    } else {
+      clearCookie("smcFirstName");
+      clearSavedForm();
+    }
+  });
+
+  var clearBtn = document.getElementById("btnClear");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", function () {
+      clearCookie("smcFirstName");
+      clearSavedForm();
+      welcome.textContent = "Welcome, new user!";
+      notYouArea.innerHTML = "";
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", setupHW4);
