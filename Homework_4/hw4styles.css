@@ -6,9 +6,6 @@ html, body {
 body {
     background-color: #FFF8E7;
     margin: 0;
-    min-height: 100vh;
-    display: flex;     
-    flex-direction: column;
     font-size: 18px; 
 }
 
@@ -17,6 +14,20 @@ body {
     background-color: #FFF8E7;
 }
 
+/* JS adds this to header to keep it "protected" at the top */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* space under sticky header so content isn't hidden behind it */
+main {
+    margin-top: 140px; 
+}
+
+/* welcome bar under the logo/title */
 #welcomeBar {
     display: flex;
     flex-direction: column; 
@@ -29,10 +40,6 @@ body {
 }
 
 /* page centering */
-main { 
-    flex: 1; 
-}
-
 main.form-page{
     width: 1000px;
     max-width: 90vw;
@@ -46,7 +53,7 @@ main.form-page h3 {
     text-align: center; 
 }
 
-/*center content*/
+/*center content for success.html */
 main.centered{
     display: flex;
     align-items: center;
@@ -120,7 +127,6 @@ main.centered{
     text-align: center; 
 }
 
-
 /* Review Section Styles */
 #reviewSection {
     display: none;
@@ -171,15 +177,11 @@ main.centered{
 }
 
 /* Footer styles */
-main { 
-    flex: 1;
-}
-
 footer {
     background-color: #004B3D;
     color: white;
-    margin-top: auto; 
     padding: 8px 0;
+    text-align: center;
 }
 
 /* error highlights */
@@ -197,12 +199,4 @@ footer {
 button[disabled] { 
     opacity: 0.6; 
     cursor: not-allowed; 
-}
-
-/* so js can make stuff stick */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
 }
